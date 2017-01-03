@@ -28,10 +28,13 @@ namespace KalmanFilter_Demo
             //产生随机数列
             for (int i = 0; i < 100; i++)
             {
-                //Random Random1 = new Random();//这样声明的话，如果多次调用rnd则会会出现每次的随机数值都一样
-                Random Random1 = new Random((int)DateTime.Now.Ticks);   //利用系统日期作为参数传进去之后可以解决上面出现的问题
+                //这样声明的话，如果多次调用rnd则会会出现每次的随机数值都一样
+                //Random Random1 = new Random();
+                //利用系统日期作为参数传进去之后可以解决上面出现的问题
+                Random Random1 = new Random((int)DateTime.Now.Ticks); 
                 double i1 = Random1.Next(20, 30);
-                double result = Random1.NextDouble() * (-0.99) + 0.99;//随机生成-0.90至0.99的随机双精度数值
+                //随机生成-0.90至0.99的随机双精度数值
+                double result = Random1.NextDouble() * (-0.99) + 0.99;
                 ObsRand[i] = i1 + result;
                 //用随机数列模拟观察值，存到控件中显示
                 this.richTextBox1.Text += ObsRand[i].ToString() + "\n";
@@ -39,8 +42,10 @@ namespace KalmanFilter_Demo
             //表格初始化
             chart1.Series.Clear();
             graphPoint(chart1, "测量值", ObsRand, Color.PowderBlue);
+            //设置纵坐标
             chart1.ChartAreas[0].AxisY.Minimum = 20;
             chart1.ChartAreas[0].AxisY.Maximum = 30;
+            //调用卡尔曼滤波器算法
             double[] True = GetKalMan(CanShu, ObsRand);
             graph(chart1, "滤波后值", True, Color.Black);
             double[] Ave = new double[ObsRand.Length];
@@ -54,8 +59,10 @@ namespace KalmanFilter_Demo
         //画图函数
         protected void graph(Chart c, string name, double[] vals, Color clr)
         {
+            //chart控件中新建一个图表
             Series s = new Series(name);
             s.ChartType = SeriesChartType.Line;
+            //根据点画线
             for (int i = 0; i < vals.Length; i++)
             {
                 s.Points.Add(new DataPoint(i, vals[i]));
@@ -69,6 +76,7 @@ namespace KalmanFilter_Demo
         {
             Series s = new Series(name);
             s.ChartType = SeriesChartType.Point;
+            //根据点画点
             for (int i = 0; i < vals.Length; i++)
             {
                 s.Points.Add(new DataPoint(i, vals[i]));
@@ -77,7 +85,6 @@ namespace KalmanFilter_Demo
             c.Series.Add(s);
         }
         //滤波函数
-
         double Average;
         public double[] GetKalMan(double[] CanShu, double[] Observe)
         {
