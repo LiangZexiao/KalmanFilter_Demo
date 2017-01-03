@@ -14,11 +14,8 @@ namespace KalmanFilter_Demo
     public partial class Form1 : Form
     {
         double[] CanShu = { 23, 9, 16, 16, 1, 0, 0, 0 };
-
         //double[] Observ = { 22, 24, 24, 25, 24, 26, 21, 26, };
-
         //double[] Observ = { 25, 26 };
-
         double[] ObsRand = new double[100];
 
         public Form1()
@@ -38,19 +35,16 @@ namespace KalmanFilter_Demo
                 ObsRand[i] = i1 + result;
                 this.richTextBox2.Text += ObsRand[i].ToString() + "\n";
             }
+            //表格初始化
             chart1.Series.Clear();
             graphPoint(chart1, "测量值", ObsRand, Color.PowderBlue);
             double[] True = GetKalMan(CanShu, ObsRand);
-
             graph(chart1, "滤波后值", True, Color.Black);
-
             double[] Ave = new double[ObsRand.Length];
-
             for (int i = 0; i < ObsRand.Length; i++)
             {
                 Ave[i] = Average;
             }
-
             graph(chart1, "平均值", Ave, Color.Red);
         }
 

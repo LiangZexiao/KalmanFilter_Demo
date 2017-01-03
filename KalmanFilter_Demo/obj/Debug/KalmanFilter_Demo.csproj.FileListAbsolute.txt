@@ -7,3 +7,12 @@ g:\文档\visual studio 2015\Projects\KalmanFilter_Demo\KalmanFilter_Demo\obj\De
 g:\文档\visual studio 2015\Projects\KalmanFilter_Demo\KalmanFilter_Demo\obj\Debug\KalmanFilter_Demo.csproj.GenerateResource.Cache
 g:\文档\visual studio 2015\Projects\KalmanFilter_Demo\KalmanFilter_Demo\obj\Debug\KalmanFilter_Demo.exe
 g:\文档\visual studio 2015\Projects\KalmanFilter_Demo\KalmanFilter_Demo\obj\Debug\KalmanFilter_Demo.pdb
+G:\文档\GitHub\KalmanFilter_Demo\KalmanFilter_Demo\bin\Debug\KalmanFilter_Demo.exe.config
+G:\文档\GitHub\KalmanFilter_Demo\KalmanFilter_Demo\obj\Debug\KalmanFilter_Demo.exe
+G:\文档\GitHub\KalmanFilter_Demo\KalmanFilter_Demo\obj\Debug\KalmanFilter_Demo.pdb
+G:\文档\GitHub\KalmanFilter_Demo\KalmanFilter_Demo\bin\Debug\KalmanFilter_Demo.exe
+G:\文档\GitHub\KalmanFilter_Demo\KalmanFilter_Demo\bin\Debug\KalmanFilter_Demo.pdb
+G:\文档\GitHub\KalmanFilter_Demo\KalmanFilter_Demo\obj\Debug\KalmanFilter_Demo.csprojResolveAssemblyReference.cache
+G:\文档\GitHub\KalmanFilter_Demo\KalmanFilter_Demo\obj\Debug\KalmanFilter_Demo.Form1.resources
+G:\文档\GitHub\KalmanFilter_Demo\KalmanFilter_Demo\obj\Debug\KalmanFilter_Demo.Properties.Resources.resources
+G:\文档\GitHub\KalmanFilter_Demo\KalmanFilter_Demo\obj\Debug\KalmanFilter_Demo.csproj.GenerateResource.Cache
