@@ -33,11 +33,14 @@ namespace KalmanFilter_Demo
                 double i1 = Random1.Next(20, 30);
                 double result = Random1.NextDouble() * (-0.99) + 0.99;//随机生成-0.90至0.99的随机双精度数值
                 ObsRand[i] = i1 + result;
-                this.richTextBox2.Text += ObsRand[i].ToString() + "\n";
+                //用随机数列模拟观察值，存到控件中显示
+                this.richTextBox1.Text += ObsRand[i].ToString() + "\n";
             }
             //表格初始化
             chart1.Series.Clear();
             graphPoint(chart1, "测量值", ObsRand, Color.PowderBlue);
+            chart1.ChartAreas[0].AxisY.Minimum = 20;
+            chart1.ChartAreas[0].AxisY.Maximum = 30;
             double[] True = GetKalMan(CanShu, ObsRand);
             graph(chart1, "滤波后值", True, Color.Black);
             double[] Ave = new double[ObsRand.Length];
@@ -78,6 +81,7 @@ namespace KalmanFilter_Demo
         double Average;
         public double[] GetKalMan(double[] CanShu, double[] Observe)
         {
+            //导入参数
             double KamanX = CanShu[0];
             double KamanP = CanShu[1];
             double KamanQ = CanShu[2];
@@ -85,16 +89,20 @@ namespace KalmanFilter_Demo
             double KamanY = CanShu[4];
             double KamanKg = CanShu[5];
             double KamanSum = CanShu[6];
+
+            //加载观察值
             double[] True = new double[ObsRand.Length];
             for (int i = 0; i <= ObsRand.Length - 1; i++)
             {
+                //对每个观察值迭代
                 KamanY = KamanX;
                 KamanP = KamanP + KamanQ;
                 KamanKg = KamanP / (KamanP + KamanR);
                 KamanX = (KamanY + KamanKg * (Observe[i] - KamanY));
                 KamanSum += KamanX;
                 True[i] = KamanX;
-                this.richTextBox1.Text += KamanX.ToString() + "\n";
+                //将滤波后的结果输出到控件中
+                this.richTextBox2.Text += KamanX.ToString() + "\n";
                 KamanP = (1 - KamanKg) * KamanP;
             }
             Average = KamanSum / Observe.Length;
